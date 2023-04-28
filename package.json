@@ -1,0 +1,40 @@
+{
+  "name": "node-redis-warlock",
+  "version": "1.0.2",
+  "description": "Battle-hardened distributed locking using redis",
+  "main": "lib/warlock.js",
+  "scripts": {
+    "pretest": "npm run start-redis",
+    "posttest": "npm run cleanup",
+    "start-redis": "docker-compose up -d redis",
+    "test": "mocha --exit ./test/warlock",
+    "cleanup": "docker-compose stop && docker-compose rm -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thedeveloper/warlock"
+  },
+  "keywords": [
+    "node.js",
+    "redis",
+    "lock"
+  ],
+  "author": "Geoff Wagstaff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thedeveloper/warlock/issues"
+  },
+  "homepage": "https://github.com/thedeveloper/warlock",
+  "dependencies": {
+    "node-redis-script": "^2.0.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "mocha": "^9.1.3",
+    "redis": "^3.1.2",
+    "should": "^13.2.3"
+  }
+}
